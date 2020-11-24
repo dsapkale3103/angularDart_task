@@ -1,0 +1,19 @@
+<div>
+  <material-input type="number" [(ngModel)]="n" label="Enter N" autoFocus floatingLabel>
+  </material-input>
+  <material-button raised primary (trigger)="makeTable()" style="background: green;color: white">Submit
+  </material-button>
+  <span class="msg">
+    {{msg}}
+  </span>
+</div>
+<div>
+  <table>
+    <tr *ngFor="let row of rows;let i=index">
+      <td [ngStyle]="getColor(i,c)" *ngFor="let col of columnHeaders;let c=index">
+        <span *ngIf="i!=0 && c==0">{{i}}</span>
+        <span *ngIf="c!=0 && i==0">{{col}}</span>
+      </td>
+    </tr>
+  </table>
+</div>
